@@ -13,7 +13,7 @@ setup(
     entry_points={'console_scripts': ['podcastdl = podcastdl:main']},
     classifiers=[
          'Environment :: Console',
-         'License :: OSI Approved :: Common Public License'
+         'License :: OSI Approved :: Common Public License',
          'Operating System :: OS Independent',
          'Programming Language :: Python :: 2.7',
          'Topic :: Internet :: WWW/HTTP',
