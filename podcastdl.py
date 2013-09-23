@@ -20,12 +20,13 @@ def get_media_elements(url):
     d = feedparser.parse(url)
     for entry in d.entries:
         mp3s = [l['href'] for l in entry['links'] if l['href'].endswith('mp3')]
-        yield entry['title'], mp3s[0]
+        yield mp3s[0]
 
 
-def download_track(title, url, output):
+def download_track(url, output):
     """Download an url and display a progressbar"""
-    local_filename = os.path.join(output, url.split('/')[-1])
+    filename = url.split('/')[-1]
+    local_filename = os.path.join(output, filename)
     if os.path.exists(local_filename):
         print "skipping, %s already exists" % local_filename
         return
@@ -35,7 +36,7 @@ def download_track(title, url, output):
         return
     size = int(r.headers['Content-Length'].strip())
     _bytes = 0
-    widgets = [title, ": ", Bar(marker="|", left="[", right=" "),
+    widgets = [filename, ": ", Bar(marker="|", left="[", right=" "),
                Percentage(), " ",  FileTransferSpeed(), "] ",
                " of {0}MB".format(str(round(size / 1024 / 1024, 2))[:4])]
 
@@ -61,7 +62,7 @@ def main():
     else:
         output = '.'
     for title, url in get_media_elements(sys.argv[1]):
-        download_track(title, url, output)
+        download_track(url, output)
 
 if __name__ == '__main__':
     main()
