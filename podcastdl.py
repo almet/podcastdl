@@ -26,7 +26,10 @@ def get_media_elements(url):
 def download_track(title, url, output):
     """Download an url and display a progressbar"""
     local_filename = os.path.join(output, url.split('/')[-1])
-    r = requests.get(url, stream=True)
+    try:
+        r = requests.get(url, stream=True)
+    except:
+        return
     size = int(r.headers['Content-Length'].strip())
     _bytes = 0
     widgets = [title, ": ", Bar(marker="|", left="[", right=" "),
