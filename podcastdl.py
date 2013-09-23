@@ -61,7 +61,7 @@ def main():
         mkdir_p(output)
     else:
         output = '.'
-    for title, url in get_media_elements(sys.argv[1]):
+    for url in get_media_elements(sys.argv[1]):
         download_track(url, output)
 
 if __name__ == '__main__':
