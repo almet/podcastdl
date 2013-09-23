@@ -3,7 +3,7 @@ from setuptools import setup
 
 setup(
     name="podcastdl",
-    version="0.1",
+    version="0.2.1",
     py_modules=['podcastdl'],
     author='Alexis Metaireau',
     author_email='alexis@notmyidea.org',

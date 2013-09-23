@@ -28,6 +28,7 @@ def download_track(title, url, output):
     local_filename = os.path.join(output, url.split('/')[-1])
     if os.path.exists(local_filename):
         print "skipping, %s already exists" % local_filename
+        return
     try:
         r = requests.get(url, stream=True)
     except:
