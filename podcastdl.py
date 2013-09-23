@@ -26,6 +26,8 @@ def get_media_elements(url):
 def download_track(title, url, output):
     """Download an url and display a progressbar"""
     local_filename = os.path.join(output, url.split('/')[-1])
+    if os.path.exists(local_filename):
+        print "skipping, %s already exists" % local_filename
     try:
         r = requests.get(url, stream=True)
     except:
