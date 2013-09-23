@@ -13,7 +13,7 @@ Hmm… okay. How do I install / use this thing?
 
 Use pip to install::
 
-    $ pip install podcast-downloader
+    $ pip install podcastdl
 
 And then just ::
     

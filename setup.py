@@ -2,7 +2,7 @@
 from setuptools import setup
 
 setup(
-    name="podcast-downloader",
+    name="podcastdl",
     version="0.1",
     py_modules=['podcastdl'],
     author='Alexis Metaireau',
